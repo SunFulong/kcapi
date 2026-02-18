@@ -241,7 +241,7 @@ impl IOVecTrait<Vec<u8>> for IOVec<Vec<u8>> {
         for i in data.iter_mut().take(ilen) {
             iovec.push(kcapi_sys::iovec {
                 iov_base: i.as_mut_ptr() as *mut ::std::os::raw::c_void,
-                iov_len: i.len() as kcapi_sys::size_t,
+                iov_len: i.len(),
             });
         }
         let iovlen = iovec.len();
@@ -295,7 +295,7 @@ impl IOVecTrait<Vec<u8>> for IOVec<Vec<u8>> {
         let mut bufp = buf;
         self.iovec.push(kcapi_sys::iovec {
             iov_base: bufp.as_mut_ptr() as *mut ::std::os::raw::c_void,
-            iov_len: bufp.len() as kcapi_sys::size_t,
+            iov_len: bufp.len(),
         });
         self.iovlen += 1;
     }

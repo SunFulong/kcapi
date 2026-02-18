@@ -261,9 +261,9 @@ impl KcapiAKCipher {
             let ret = kcapi_sys::kcapi_akcipher_encrypt(
                 self.handle,
                 pt.as_ptr(),
-                pt.len() as kcapi_sys::size_t,
+                pt.len(),
                 ct.as_mut_ptr(),
-                ct.len() as kcapi_sys::size_t,
+                ct.len(),
                 access as i32,
             );
             if ret < 0 {
@@ -302,9 +302,9 @@ impl KcapiAKCipher {
             let ret = kcapi_sys::kcapi_akcipher_decrypt(
                 self.handle,
                 ct.as_ptr(),
-                ct.len() as kcapi_sys::size_t,
+                ct.len(),
                 pt.as_mut_ptr(),
-                pt.len() as kcapi_sys::size_t,
+                pt.len(),
                 access as ::std::os::raw::c_int,
             );
             if ret < 0 {
@@ -341,9 +341,9 @@ impl KcapiAKCipher {
             let ret = kcapi_sys::kcapi_akcipher_sign(
                 self.handle,
                 message.as_ptr(),
-                message.len() as kcapi_sys::size_t,
+                message.len(),
                 sig.as_mut_ptr(),
-                sig.len() as kcapi_sys::size_t,
+                sig.len(),
                 access as ::std::os::raw::c_int,
             );
             if ret < 0 {
@@ -385,9 +385,9 @@ impl KcapiAKCipher {
             let ret = kcapi_sys::kcapi_akcipher_verify(
                 self.handle,
                 inp.as_ptr(),
-                inp.len() as kcapi_sys::size_t,
+                inp.len(),
                 out.as_mut_ptr(),
-                out.len() as kcapi_sys::size_t,
+                out.len(),
                 access as ::std::os::raw::c_int,
             );
             if ret < 0 {

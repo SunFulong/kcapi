@@ -298,10 +298,10 @@ impl KcapiSKCipher {
             let ret = kcapi_sys::kcapi_cipher_encrypt(
                 self.handle,
                 pt.as_ptr(),
-                pt.len() as kcapi_sys::size_t,
+                pt.len(),
                 iv.as_ptr(),
                 ct.as_mut_ptr(),
-                ct.len() as kcapi_sys::size_t,
+                ct.len(),
                 access as ::std::os::raw::c_int,
             );
             if ret < 0 {
@@ -379,7 +379,7 @@ impl KcapiSKCipher {
                 self.handle,
                 iniov.iovec.as_mut_ptr(),
                 outiov.iovec.as_mut_ptr(),
-                iniov.len() as kcapi_sys::size_t,
+                iniov.len(),
                 iv.as_ptr(),
                 access as ::std::os::raw::c_int,
             );
@@ -440,10 +440,10 @@ impl KcapiSKCipher {
             let ret = kcapi_sys::kcapi_cipher_decrypt(
                 self.handle,
                 ct.as_ptr(),
-                ct.len() as kcapi_sys::size_t,
+                ct.len(),
                 iv.as_ptr(),
                 pt.as_mut_ptr(),
-                pt.len() as kcapi_sys::size_t,
+                pt.len(),
                 access as ::std::os::raw::c_int,
             );
             if ret < 0 {
@@ -524,7 +524,7 @@ impl KcapiSKCipher {
                 self.handle,
                 iniov.iovec.as_mut_ptr(),
                 outiov.iovec.as_mut_ptr(),
-                iniov.len() as kcapi_sys::size_t,
+                iniov.len(),
                 iv.as_ptr(),
                 access as ::std::os::raw::c_int,
             );
@@ -612,7 +612,7 @@ impl KcapiSKCipher {
                 cipher.handle,
                 iv.as_ptr(),
                 iov.iovec.as_mut_ptr(),
-                iov.len() as kcapi_sys::size_t,
+                iov.len(),
             );
             if ret < 0 {
                 return Err(KcapiError {
@@ -702,7 +702,7 @@ impl KcapiSKCipher {
                 cipher.handle,
                 iv.as_ptr(),
                 iov.iovec.as_mut_ptr(),
-                iov.len() as kcapi_sys::size_t,
+                iov.len(),
             );
             if ret < 0 {
                 return Err(KcapiError {
@@ -749,7 +749,7 @@ impl KcapiSKCipher {
             let ret = kcapi_sys::kcapi_cipher_stream_update(
                 self.handle,
                 iov.iovec.as_mut_ptr(),
-                iov.len() as kcapi_sys::size_t,
+                iov.len(),
             );
             if ret < 0 {
                 return Err(KcapiError {
@@ -794,7 +794,7 @@ impl KcapiSKCipher {
             let ret = kcapi_sys::kcapi_cipher_stream_update_last(
                 self.handle,
                 iov.iovec.as_mut_ptr(),
-                iov.len() as kcapi_sys::size_t,
+                iov.len(),
             );
             if ret < 0 {
                 return Err(KcapiError {
@@ -846,7 +846,7 @@ impl KcapiSKCipher {
             let ret = kcapi_sys::kcapi_cipher_stream_op(
                 self.handle,
                 iov.iovec.as_mut_ptr(),
-                iov.len() as kcapi_sys::size_t,
+                iov.len(),
             );
             if ret < 0 {
                 return Err(KcapiError {
@@ -1162,7 +1162,7 @@ pub fn enc_aes_cbc(key: Vec<u8>, pt: Vec<u8>, iv: [u8; AES_BLOCKSIZE]) -> KcapiR
     check_aes_input(&key, &pt)?;
     let mut ct = vec![0u8; pt.len()];
 
-    let ret: kcapi_sys::ssize_t;
+    let ret: isize;
     unsafe {
         ret = kcapi_sys::kcapi_cipher_enc_aes_cbc(
             key.as_ptr(),
@@ -1170,10 +1170,10 @@ pub fn enc_aes_cbc(key: Vec<u8>, pt: Vec<u8>, iv: [u8; AES_BLOCKSIZE]) -> KcapiR
                 .try_into()
                 .expect("Failed to convert usize to u32"),
             pt.as_ptr(),
-            pt.len() as kcapi_sys::size_t,
+            pt.len(),
             iv.as_ptr(),
             ct.as_mut_ptr(),
-            ct.len() as kcapi_sys::size_t,
+            ct.len(),
         );
     }
     if ret < 0 {
@@ -1230,7 +1230,7 @@ pub fn dec_aes_cbc(key: Vec<u8>, ct: Vec<u8>, iv: [u8; AES_BLOCKSIZE]) -> KcapiR
     check_aes_input(&key, &ct)?;
     let mut pt = vec![0u8; ct.len()];
 
-    let ret: kcapi_sys::ssize_t;
+    let ret: isize;
     unsafe {
         ret = kcapi_sys::kcapi_cipher_dec_aes_cbc(
             key.as_ptr(),
@@ -1238,10 +1238,10 @@ pub fn dec_aes_cbc(key: Vec<u8>, ct: Vec<u8>, iv: [u8; AES_BLOCKSIZE]) -> KcapiR
                 .try_into()
                 .expect("Failed to convert usize to u32"),
             ct.as_ptr(),
-            ct.len() as kcapi_sys::size_t,
+            ct.len(),
             iv.as_ptr(),
             pt.as_mut_ptr(),
-            pt.len() as kcapi_sys::size_t,
+            pt.len(),
         );
     }
     if ret < 0 {
@@ -1294,7 +1294,7 @@ pub fn enc_aes_ctr(key: Vec<u8>, pt: Vec<u8>, ctr: [u8; AES_BLOCKSIZE]) -> Kcapi
     check_aes_input(&key, &pt)?;
     let mut ct = vec![0u8; pt.len()];
 
-    let ret: kcapi_sys::ssize_t;
+    let ret: isize;
     unsafe {
         ret = kcapi_sys::kcapi_cipher_enc_aes_ctr(
             key.as_ptr(),
@@ -1302,10 +1302,10 @@ pub fn enc_aes_ctr(key: Vec<u8>, pt: Vec<u8>, ctr: [u8; AES_BLOCKSIZE]) -> Kcapi
                 .try_into()
                 .expect("Failed to convert usize to u32"),
             pt.as_ptr(),
-            pt.len() as kcapi_sys::size_t,
+            pt.len(),
             ctr.as_ptr(),
             ct.as_mut_ptr(),
-            ct.len() as kcapi_sys::size_t,
+            ct.len(),
         );
     }
     if ret < 0 {
@@ -1361,7 +1361,7 @@ pub fn dec_aes_ctr(key: Vec<u8>, ct: Vec<u8>, ctr: [u8; AES_BLOCKSIZE]) -> Kcapi
     check_aes_input(&key, &ct)?;
     let mut pt = vec![0u8; ct.len()];
 
-    let ret: kcapi_sys::ssize_t;
+    let ret: isize;
     unsafe {
         ret = kcapi_sys::kcapi_cipher_dec_aes_ctr(
             key.as_ptr(),
@@ -1369,10 +1369,10 @@ pub fn dec_aes_ctr(key: Vec<u8>, ct: Vec<u8>, ctr: [u8; AES_BLOCKSIZE]) -> Kcapi
                 .try_into()
                 .expect("Failed to convert usize to u32"),
             ct.as_ptr(),
-            ct.len() as kcapi_sys::size_t,
+            ct.len(),
             ctr.as_ptr(),
             pt.as_mut_ptr(),
-            pt.len() as kcapi_sys::size_t,
+            pt.len(),
         );
     }
     if ret < 0 {

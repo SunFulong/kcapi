@@ -307,7 +307,7 @@ impl KcapiRNG {
             let ret = kcapi_sys::kcapi_rng_generate(
                 self.handle,
                 out.as_mut_ptr(),
-                count as kcapi_sys::size_t,
+                count,
             );
             if ret < 0 {
                 return Err(KcapiError {
@@ -353,7 +353,7 @@ impl Drop for KcapiRNG {
 pub fn get_bytes(count: usize) -> KcapiResult<Vec<u8>> {
     let mut out = vec![0u8; count];
     unsafe {
-        let ret = kcapi_sys::kcapi_rng_get_bytes(out.as_mut_ptr(), count as kcapi_sys::size_t);
+        let ret = kcapi_sys::kcapi_rng_get_bytes(out.as_mut_ptr(), count);
         if ret < 0 {
             return Err(KcapiError {
                 code: ret.try_into().expect("failed to convert i64 into i32"),

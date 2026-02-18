@@ -230,9 +230,9 @@ impl KcapiKDF {
             let ret = kcapi_sys::kcapi_kdf_ctr(
                 self.handle,
                 input.as_ptr(),
-                input.len() as kcapi_sys::size_t,
+                input.len(),
                 out.as_mut_ptr(),
-                outsize as kcapi_sys::size_t,
+                outsize,
             );
             if ret < 0 {
                 return Err(KcapiError {
@@ -285,9 +285,9 @@ impl KcapiKDF {
             let ret = kcapi_sys::kcapi_kdf_dpi(
                 self.handle,
                 input.as_ptr(),
-                input.len() as kcapi_sys::size_t,
+                input.len(),
                 out.as_mut_ptr(),
-                outsize as kcapi_sys::size_t,
+                outsize,
             );
             if ret < 0 {
                 return Err(KcapiError {
@@ -358,9 +358,9 @@ impl KcapiKDF {
             let ret = kcapi_sys::kcapi_kdf_fb(
                 self.handle,
                 input.as_ptr(),
-                input.len() as kcapi_sys::size_t,
+                input.len(),
                 out.as_mut_ptr(),
-                outsize as kcapi_sys::size_t,
+                outsize,
             );
             if ret < 0 {
                 return Err(KcapiError {
@@ -436,13 +436,13 @@ pub fn hkdf(
         let ret = kcapi_sys::kcapi_hkdf(
             hash.as_ptr(),
             ikm.as_ptr(),
-            ikm.len() as kcapi_sys::size_t,
+            ikm.len(),
             salt.as_ptr(),
             salt.len() as u32,
             info.as_ptr(),
-            info.len() as kcapi_sys::size_t,
+            info.len(),
             out.as_mut_ptr(),
-            outsize as kcapi_sys::size_t,
+            outsize,
         );
         if ret < 0 {
             return Err(KcapiError {
@@ -514,10 +514,10 @@ pub fn pbkdf(
             password.as_ptr(),
             password.len() as u32,
             salt.as_ptr(),
-            salt.len() as kcapi_sys::size_t,
+            salt.len(),
             iterations,
             out.as_mut_ptr(),
-            outsize as kcapi_sys::size_t,
+            outsize,
         );
         if ret < 0 {
             return Err(KcapiError {

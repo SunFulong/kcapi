@@ -1,9 +1,5 @@
 # KCAPI - The Official High-level Rust Bindings for libkcapi
 
-[![CI Badge](https://github.com/puru1761/kcapi/actions/workflows/main.yml/badge.svg)](https://github.com/puru1761/kcapi/actions/workflows/main.yml)
-[![License](https://img.shields.io/github/license/puru1761/kcapi)](https://github.com/puru1761/kcapi/blob/master/LICENSE)
-[![Crate Badge](https://img.shields.io/crates/v/kcapi.svg)](https://crates.io/crates/kcapi)
-
 This repository contains the rust sources for the official high-level rust
 bindings for `libkcapi` - A userspace interface to the Linux Kernel's
 Cryptographic API (KCAPI). These bindings are based on top of the `kcapi-sys`
@@ -91,7 +87,7 @@ In order to build this project, it must be checked out along with all of it's
 submodules recursively:
 
 ```
-git clone https://github.com/puru1761/kcapi.git --recurse-submodules
+git clone https://github.com/SunFulong/kcapi.git --recurse-submodules
 ```
 
 Install all build dependencies. These are:
@@ -141,3 +137,4 @@ to write more tests here in order to ensure that our code quality is the best.
 ## Author
 
 * Purushottam A. Kulkarni <<puruk@protonmail.com>>
+* Fulong Sun <<fuklung@qq.com>>
