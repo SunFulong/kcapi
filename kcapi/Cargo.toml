@@ -1,0 +1,43 @@
+[package]
+name = "pkloong-kcapi"
+version = "0.1.0"
+edition = "2024"
+description = "High-level Rust wrapper for Linux Kernel Crypto API."
+license = "BSD-2-Clause OR GPL-2.0-only"
+authors.workspace = true
+readme = "README.md"
+repository = "https://github.com/SunFulong/kcapi"
+homepage = "https://github.com/SunFulong/kcapi"
+documentation = "https://docs.rs/pkloong-kcapi"
+keywords = [
+    "crypto",
+    "kernel",
+    "libkcapi",
+    "linux",
+    "shangmi",
+]
+categories = [
+    "api-bindings",
+    "cryptography",
+]
+
+[features]
+all = [
+    "md",
+]
+md = [
+    "pkloong-kcapi-sys/md",
+]
+
+[dependencies.pkloong-kcapi-sys]
+version = "0.1.0"
+path = "../kcapi-sys"
+
+[package.metadata.docs.rs]
+features = [
+    "all",
+]
+rustdoc-args = [
+    "--cfg",
+    "docsrs",
+]

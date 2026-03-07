@@ -1,0 +1,62 @@
+[package]
+name = "pkloong-kcapi-sys"
+version = "0.1.0"
+edition = "2024"
+description = "Low-level Rust FFI bindings and build integration for libkcapi."
+license = "BSD-2-Clause OR GPL-2.0-only"
+authors.workspace = true
+readme = "README.md"
+repository = "https://github.com/SunFulong/kcapi"
+homepage = "https://github.com/SunFulong/kcapi"
+documentation = "https://docs.rs/pkloong-kcapi-sys"
+keywords = [
+    "crypto",
+    "kernel",
+    "libkcapi",
+    "linux",
+    "shangmi",
+]
+categories = [
+    "api-bindings",
+    "cryptography",
+    "external-ffi-bindings",
+]
+
+[features]
+default = [
+    "year2038",
+]
+all = [
+    "aead",
+    "asym",
+    "kdf",
+    "kpp",
+    "largefile",
+    "md",
+    "rng",
+    "sym",
+    "year2038",
+]
+kdf = [
+]
+sym = [
+]
+md = [
+]
+aead = [
+]
+rng = [
+]
+asym = [
+]
+kpp = [
+]
+largefile = [
+]
+year2038 = [
+]
+
+[build-dependencies]
+autotools = "0.2.7"
+bindgen = "0.72.1"
+fs_extra = "1.3.0"

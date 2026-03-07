@@ -1,0 +1,13 @@
+[workspace]
+resolver = "3"
+members = [
+    "kcapi",
+    "kcapi-sys",
+]
+
+[workspace.package]
+license = "BSD-2-Clause OR GPL-2.0-only"
+readme = "README.md"
+authors = [
+    "Fulong Sun (孙福龙), Beijing, China",
+]

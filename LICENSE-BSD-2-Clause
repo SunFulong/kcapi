@@ -1,0 +1,45 @@
+BSD 2 条款许可证（非官方中文译文）
+
+重要提示：以下中文文本为便于阅读的完整译文，仅供参考，不构成法律解释。
+如中文与英文存在任何歧义或冲突，以后附英文原文为准。
+
+版权所有 (c) 2026, 孙福龙
+保留所有权利。
+
+在满足以下条件的前提下，允许以源代码和二进制形式再分发和使用本软件，无论是否修改：
+
+1. 源代码形式再分发时，必须保留上述版权声明、本条件列表以及以下免责声明。
+
+2. 二进制形式再分发时，必须在随分发提供的文档和/或其他材料中，复制上述版权声明、本条件列表以及以下免责声明。
+
+本软件由版权持有人和贡献者按“现状”提供，不提供任何明示或默示担保，包括但不限于对适销性和特定用途适用性的默示担保。在任何情况下，无论基于任何责任理论（无论合同责任、严格责任或侵权责任（包括过失或其他）），即使已被告知可能发生此类损害，版权持有人或贡献者均不对因使用本软件而导致的任何直接、间接、附带、特殊、惩罚性或后果性损害承担责任，包括但不限于替代商品或服务采购、使用损失、数据丢失、利润损失或业务中断。
+
+---------------------------------------------------------------------
+English original text (authoritative)
+---------------------------------------------------------------------
+
+BSD 2-Clause License
+
+Copyright (c) 2026, Fulong Sun
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
