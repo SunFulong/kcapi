@@ -1,7 +1,7 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
-//! `pkloong-kcapi` 是 Linux Kernel Crypto API 的 Rust 高层封装，当前提供消息杂凑值与鉴别码接口。\
-//! `pkloong-kcapi` is a high-level Rust wrapper for Linux Kernel Crypto API, currently providing Digest/HMAC APIs.
+//! `pkloong-kcapi` 是 Linux Kernel Crypto API 的 Rust 高层封装，当前提供消息杂凑值、鉴别码与随机数字节接口。\
+//! `pkloong-kcapi` is a high-level Rust wrapper for Linux Kernel Crypto API, currently providing Digest, HMAC, and random-byte APIs.
 //!
 //! # 功能 / Features
 //!
@@ -9,13 +9,17 @@
 //!   Digest: `SM3`, `SHA1`, `SHA2`, `SHA3` series algorithms
 //! - 鉴别码：`SM3`、`SHA1`、`SHA2` 系列算法对应 HMAC 接口\
 //!   HMAC: matching HMAC APIs for the `SM3`, `SHA1`, `SHA2` series algorithms
+//! - 随机数：从内核 RNG 获取随机字节\
+//!   RNG: random bytes from kernel RNG
 //!
 //! # 特性开关 / Feature Flags
 //!
 //! - `md`：启用消息杂凑值与鉴别码模块 [`md`]。\
 //!   `md`: enables digest and HMAC module [`md`].
-//! - `all`：聚合特性，当前等价于启用 `md`。\
-//!   `all`: aggregate feature, currently equivalent to enabling `md`.
+//! - `rng`：启用随机数字节模块 [`rng`]。\
+//!   `rng`: enables random-byte module [`rng`].
+//! - `all`：聚合特性，当前等价于同时启用 `md` 与 `rng`。\
+//!   `all`: aggregate feature, currently equivalent to enabling both `md` and `rng`.
 //!
 //! # 最小示例 / Minimal Example
 //!
@@ -26,12 +30,14 @@
 //!
 //! ```rust
 //! use pkloong_kcapi::md::{hmac_sm3, sm3};
+//! use pkloong_kcapi::rng::get_bytes;
 //!
 //! fn main() {
 //!     let msg = b"hello world";
 //!     let key = b"secret";
 //!     println!("sm3: {:?}", sm3(msg));
 //!     println!("hmac-sm3: {:?}", hmac_sm3(key, msg));
+//!     println!("rng-16: {:?}", get_bytes(16));
 //! }
 //! ```
 //!
@@ -51,6 +57,9 @@
 #[cfg(feature = "md")]
 #[cfg_attr(docsrs, doc(cfg(feature = "md")))]
 pub mod md;
+#[cfg(feature = "rng")]
+#[cfg_attr(docsrs, doc(cfg(feature = "rng")))]
+pub mod rng;
 pub mod version;
 
 #[cfg(test)]

@@ -1,6 +1,6 @@
 [package]
 name = "pkloong-kcapi"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "High-level Rust wrapper for Linux Kernel Crypto API."
 license = "BSD-2-Clause OR GPL-2.0-only"
@@ -24,9 +24,13 @@ categories = [
 [features]
 all = [
     "md",
+    "rng",
 ]
 md = [
     "pkloong-kcapi-sys/md",
+]
+rng = [
+    "pkloong-kcapi-sys/rng",
 ]
 
 [dependencies.pkloong-kcapi-sys]

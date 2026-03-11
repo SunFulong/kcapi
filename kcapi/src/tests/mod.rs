@@ -1,5 +1,7 @@
 #[cfg(feature = "md")]
 mod md;
+#[cfg(feature = "rng")]
+mod rng;
 
 #[test]
 fn test_version() {
